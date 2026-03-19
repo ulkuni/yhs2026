@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette - Premium HSL System */
+  --bg-dark-h: 220;
+  --bg-dark-s: 20%;
+  --bg-dark-l: 6%;
+  --bg-dark: var(--bg-dark-h) var(--bg-dark-s) var(--bg-dark-l);
+
+  --bg-card-h: 220;
+  --bg-card-s: 20%;
+  --bg-card-l: 12%;
+  --bg-card: var(--bg-card-h) var(--bg-card-s) var(--bg-card-l);
+
+  --accent-green-h: 142;
+  --accent-green-s: 70%;
+  --accent-green-l: 50%;
+  --accent-green: var(--accent-green-h) var(--accent-green-s) var(--accent-green-l);
+
+  --accent-amber-h: 38;
+  --accent-amber-s: 92%;
+  --accent-amber-l: 50%;
+  --accent-amber: var(--accent-amber-h) var(--accent-amber-s) var(--accent-amber-l);
+
+  --accent-blue-h: 217;
+  --accent-blue-s: 91%;
+  --accent-blue-l: 60%;
+  --accent-blue: var(--accent-blue-h) var(--accent-blue-s) var(--accent-blue-l);
+
+  --text-primary: 210 20% 98%;
+  --text-secondary: 215 20% 75%;
+
+  --glass-bg: hsla(var(--bg-card-h), var(--bg-card-s), 15%, 0.6);
+  --glass-border: hsla(var(--bg-card-h), var(--bg-card-s), 30%, 0.3);
+  
+  /* Spacing & Sizing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: hsl(var(--bg-dark));
+  color: hsl(var(--text-primary));
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: hsla(var(--bg-dark-h), var(--bg-dark-s), var(--bg-dark-l), 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+}
+
+.sticky-top { top: 0; }
+.fixed-bottom { bottom: 0; }
+
+/* Utility Classes */
+.container {
+  max-width: 480px; /* Mobile first constrained width */
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--accent-green)), hsl(var(--accent-blue)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Form & Input Styles */
+.onboarding-card {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.option-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+
+.option-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: hsl(var(--text-secondary));
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option-btn.selected {
+  border-color: hsl(var(--accent-green));
+  color: white;
+  background: hsla(var(--accent-green-h), var(--accent-green-s), var(--accent-green-l), 0.1);
+}
+
+/* Progress bar for onboarding */
+.prog-bar {
+  height: 4px;
+  background: var(--glass-border);
+  border-radius: 2px;
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.prog-fill {
+  height: 100%;
+  background: hsl(var(--accent-green));
+  transition: width 0.3s ease;
+}
+
+/* Dashboard Specifics */
+.meal-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.stat-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-green { background: hsla(var(--accent-green-h), var(--accent-green-s), var(--accent-green-l), 0.2); color: hsl(var(--accent-green)); }
+.badge-amber { background: hsla(var(--accent-amber-h), var(--accent-amber-s), var(--accent-amber-l), 0.2); color: hsl(var(--accent-amber)); }
+.badge-blue { background: hsla(var(--accent-blue-h), var(--accent-blue-s), var(--accent-blue-l), 0.2); color: hsl(var(--accent-blue)); }
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--glass-border);
+}
+
+/* Pantry & Form Elements */
+input.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input.glass-panel:focus {
+  border-color: hsl(var(--accent-blue));
+}
+
+/* Bottom Nav Tabs */
+.nav-tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 72px;
+  padding-bottom: 12px;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  color: hsl(var(--text-secondary));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-tab.active {
+  color: hsl(var(--accent-green));
+}
+
+/* Buttons */
+.btn-primary {
+  background: hsl(var(--accent-green));
+  color: hsl(var(--bg-dark));
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  width: 100%;
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+  filter: brightness(1.1);
+}
+
+/* Animations & Transitions */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* List Item Hover Effects */
+.glass-panel {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: hsla(var(--accent-green-h), var(--accent-green-s), var(--accent-green-l), 0.5);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* Active Nav Indicator Animation */
+.nav-tab.active .icon {
+  transform: scale(1.1);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Custom Checkbox Style */
+input[type="checkbox"] {
+  accent-color: hsl(var(--accent-green));
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* Skeleton Loading (Optional Simulation) */
+.skeleton {
+  background: linear-gradient(90deg, var(--glass-border) 25%, var(--glass-bg) 50%, var(--glass-border) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Mobile Responsiveness Fine-tuning */
+@media (max-width: 380px) {
+  :root {
+    --spacing-lg: 16px;
+    --radius-lg: 20px;
+  }
+  h2 { font-size: 1.5rem !important; }
+}

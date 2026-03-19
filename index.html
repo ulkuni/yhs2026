@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Plan-to-Plate | 당신만의 AI 식단 플래너</title>
+  <meta name="description" content="사용자의 건강 목표와 식이 선호도에 최적화된 주간 식단을 인공지능이 제안합니다.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation (Mobile Glass Nav) -->
+    <nav class="glass-nav sticky-top">
+      <div class="container nav-content">
+        <h1 class="logo text-gradient" style="font-size: 1.5rem;">Plan-to-Plate</h1>
+        <div class="user-profile">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=ulkuni" alt="Profile" class="avatar">
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="main-view" class="container" style="padding-top: 80px; padding-bottom: 100px;">
+      <!-- Content will be injected by main.js -->
+      <div id="loader" class="animate-fade-in" style="text-align: center; margin-top: 50px;">
+        <p style="color: hsl(var(--text-secondary));">AI가 당신의 식단을 준비 중입니다...</p>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <footer id="bottom-nav" class="glass-nav fixed-bottom" style="display: none;">
+      <div class="container nav-tabs">
+        <button class="nav-tab active" data-view="home">
+          <span class="icon">🏠</span>
+          <span class="label">홈</span>
+        </button>
+        <button class="nav-tab" data-view="planner">
+          <span class="icon">📅</span>
+          <span class="label">플래너</span>
+        </button>
+        <button class="nav-tab" data-view="grocery">
+          <span class="icon">🛒</span>
+          <span class="label">장보기</span>
+        </button>
+        <button class="nav-tab" data-view="tracker">
+          <span class="icon">📸</span>
+          <span class="label">기록</span>
+        </button>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
